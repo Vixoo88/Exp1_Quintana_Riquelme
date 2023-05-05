@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="icon" href="imagenes/minilogo.ico">
+
+    <link rel="stylesheet" href="css/estilos.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <!-- Logo -->
+      <a class="navbar-brand ms-auto" href="#">
+        <img src="imagenes/logazo.png" alt="Logotipo">
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Menú -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="informacion.html">Informacion</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="galeria.html">Galeria</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="formulario.html">Formulario</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+    <form id="formulario">
+        <label for="rut">Rut:</label>
+        <input type="text" name="rut" id="rut" placeholder="121231235" minlength="9" maxlength="10" required>
+        <br>
+        <label for="name">Nombre:</label>
+        <input type="text" name="name" id="name" placeholder="Ingrese su nombre" minlength="3" maxlength="20" required>
+        <br>
+        <label for="apellidop">Apellido paterno:</label>
+        <input type="text" name="apellidop" id="apellidop" placeholder="Ingrese su apellido paterno" minlength="3" maxlength="20" required>
+        <br>
+        <label for="apellidom">Apellido materno:</label>
+        <input type="text" name="apellidom" id="apellidom" placeholder="Ingrese su apellido materno" minlength="3" maxlength="20" required>
+        <br>
+        <label for="nacimiento">Fecha de nacimiento:</label>
+        <input type="date" name="date" id="date" required>
+        <br>
+        <label for="edad">Edad:</label>
+        <input type="number" name="edad" id="edad" placeholder="Ingrese su edad" required>
+        <br>
+        <label for="genero">Género:</label>
+        <select name="genero" id="genero" required>
+          <option value=""></option>
+          <option value="Hombre">Hombre</option>
+          <option value="Mujer">Mujer</option>
+          <option value="Otro">Otro</option>
+        </select>
+        <br>
+        <label for="celular">Celular:</label>
+        <input type="tel" name="celular" id="celular" placeholder="+569" minlength="9" maxlength="12" required>
+        <br>
+        <label for="correo">Email:</label>
+        <input type="email" name="correo" id="correo" placeholder="Ingrese su correo electrónico" required>
+        <br>  
+        <label for="profesion">Profesión:</label>
+        <input type="text" name="profesion" id="profesion" placeholder="Ingrese su profesión" required>
+        <br>
+        <label for="motivacion">Motivación para postular:</label>
+        <br>
+        <textarea name="motivacion" id="motivacion" cols="30" rows="10" required></textarea>
+        <br>
+        <button type="submit">Enviar</button>
+        <input type="button" value="Crear carta" id="crear-carta">
+        <br>
+        <label for="carta">Carta de presentación:</label>
+        <br>
+        <textarea name="carta" id="carta" cols="30" rows="10" readonly></textarea>
+      </form>
+
+
+
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <p>&copy; Derechos reservados</p>
+            </div>
+            <div class="col-md-6 text-right">
+              <a href="https://www.facebook.com/"><img src="imagenes/facebook.png" alt="Facebook"></a>
+              <a href="https://twitter.com/"><img src="imagenes/twitter.png" alt="Twitter"></a>
+              <a href="https://www.instagram.com/"><img src="imagenes/instagram.png" alt="Instagram"></a>
+            </div>
+          </div>
+        </div>
+      </footer>
+      
+
+    <script src="javascript/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Recetas de cocina</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://developer.edamam.com/edamam-docs-nutrition-api-demo/assets/js/edamam_api.js"></script>
+  <link rel="stylesheet" href="css/estilosapi.css">
+</head>
+<body>
+  <h1>Búsqueda de recetas</h1>
+  <form id="recetas-form">
+    <label for="ingrediente">Ingrediente:</label>
+    <input type="text" id="ingrediente" name="ingrediente" placeholder="Ej: pollo">
+    <br>
+    <label for="saludable">Saludable:</label>
+    <select id="saludable" name="saludable">
+      <option value="">Cualquiera</option>
+      <option value="true">Sí</option>
+      <option value="false">No</option>
+    </select>
+    <br>
+    <button type="submit">Buscar</button>
+  </form>
+
+  <div id="recetas-container"></div>
+
+  <script>
+    $(document).ready(function() {
+      $("#recetas-form").submit(function(event) {
+        event.preventDefault();
+        var ingrediente = $("#ingrediente").val();
+        var saludable = $("#saludable").val();
+        var app_id = "cb4cf78f"; // Reemplazar con tu APP_ID
+        var app_key = "230ab00247897a439f8b3bd3321a7827"; // Reemplazar con tu APP_KEY
+        var url = "https://api.edamam.com/search?q=" + ingrediente + "&app_id=" + app_id + "&app_key=" + app_key;
+        if (saludable !== "") {
+          url += "&health=" + saludable;
+        }
+        $.get(url, function(data) {
+          var hits = data.hits;
+          var recetasHTML = "";
+          for (var i = 0; i < hits.length; i++) {
+            var receta = hits[i].recipe;
+            recetasHTML += "<div>";
+            recetasHTML += "<h2>" + receta.label + "</h2>";
+            recetasHTML += "<img src='" + receta.image + "' alt='" + receta.label + "'>";
+            recetasHTML += "<ul>";
+            for (var j = 0; j < receta.ingredients.length; j++) {
+              recetasHTML += "<li>" + receta.ingredients[j].text + "</li>";
+            }
+            recetasHTML += "</ul>";
+            recetasHTML += "<a href='" + receta.url + "' target='_blank'>Ver receta completa</a>";
+            recetasHTML += "</div>";
+          }
+          $("#recetas-container").html(recetasHTML);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
+
