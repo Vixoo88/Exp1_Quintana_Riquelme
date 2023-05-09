@@ -1,63 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Recetas de cocina</title>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://developer.edamam.com/edamam-docs-nutrition-api-demo/assets/js/edamam_api.js"></script>
+  <meta charset="utf-8">
+  <title>Menú de cafetería</title>
   <link rel="stylesheet" href="css/estilosapi.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
 </head>
 <body>
-  <h1>Búsqueda de recetas</h1>
-  <form id="recetas-form">
-    <label for="ingrediente">Ingrediente:</label>
-    <input type="text" id="ingrediente" name="ingrediente" placeholder="Ej: pollo">
-    <br>
-    <label for="saludable">Saludable:</label>
-    <select id="saludable" name="saludable">
-      <option value="">Cualquiera</option>
-      <option value="true">Sí</option>
-      <option value="false">No</option>
-    </select>
-    <br>
-    <button type="submit">Buscar</button>
-  </form>
 
-  <div id="recetas-container"></div>
+    <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <!-- Logo -->
+      <a class="navbar-brand ms-auto" href="#">
+        <img src="imagenes/logazo.png" alt="Logotipo">
+      </a>
 
-  <script>
-    $(document).ready(function() {
-      $("#recetas-form").submit(function(event) {
-        event.preventDefault();
-        var ingrediente = $("#ingrediente").val();
-        var saludable = $("#saludable").val();
-        var app_id = "cb4cf78f"; // Reemplazar con tu APP_ID
-        var app_key = "230ab00247897a439f8b3bd3321a7827"; // Reemplazar con tu APP_KEY
-        var url = "https://api.edamam.com/search?q=" + ingrediente + "&app_id=" + app_id + "&app_key=" + app_key;
-        if (saludable !== "") {
-          url += "&health=" + saludable;
-        }
-        $.get(url, function(data) {
-          var hits = data.hits;
-          var recetasHTML = "";
-          for (var i = 0; i < hits.length; i++) {
-            var receta = hits[i].recipe;
-            recetasHTML += "<div>";
-            recetasHTML += "<h2>" + receta.label + "</h2>";
-            recetasHTML += "<img src='" + receta.image + "' alt='" + receta.label + "'>";
-            recetasHTML += "<ul>";
-            for (var j = 0; j < receta.ingredients.length; j++) {
-              recetasHTML += "<li>" + receta.ingredients[j].text + "</li>";
-            }
-            recetasHTML += "</ul>";
-            recetasHTML += "<a href='" + receta.url + "' target='_blank'>Ver receta completa</a>";
-            recetasHTML += "</div>";
-          }
-          $("#recetas-container").html(recetasHTML);
-        });
-      });
-    });
-  </script>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Menú -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="informacion.html">Informacion</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="galeria.html">Galeria</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="formulario.html">Formulario</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <h1>Menú de cafetería</h1>
+  <ul id="menu">
+  </ul>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <p>&copy; Derechos reservados</p>
+        </div>
+        <div class="col-md-6 text-right">
+          <a href="https://www.facebook.com/"><img src="imagenes/facebook.png" alt="Facebook"></a>
+          <a href="https://twitter.com/"><img src="imagenes/twitter.png" alt="Twitter"></a>
+          <a href="https://www.instagram.com/"><img src="imagenes/instagram.png" alt="Instagram"></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="javascript/menu.js"></script>
 </body>
 </html>
+ 
 
