@@ -9,7 +9,7 @@ function validarCorreo(correo) {
 
 // Función para crear la carta de presentación e intención
 function crearCarta(e) {
-  e.preventDefault(); // Prevenir el envío del formulario
+  e.preventDefault(); 
   const rut = form.rut.value;
   const nombre = form.name.value;
   const apellidoPaterno = form.apellidop.value;
@@ -63,7 +63,7 @@ botonEnviar.addEventListener("click", validarFormulario);
 formulario.addEventListener("submit", validarFormulario);
 
 
-
+//validaciones
 function validarFormulario() {
   let rut = document.getElementById("rut").value;
   let name = document.getElementById("name").value;
@@ -77,55 +77,55 @@ function validarFormulario() {
   let profesion = document.getElementById("profesion").value;
   let motivacion = document.getElementById("motivacion").value;
 
-  // Validar el campo de Rut
+  
   if (rut == "") {
     alert("Debe ingresar un RUT");
     return false;
   }
 
-  // Validar el campo de Nombre
+  
   if (name == "") {
     alert("Debe ingresar un nombre");
     return false;
   }
 
-  // Validar el campo de Apellido Paterno
+  
   if (apellidop == "") {
     alert("Debe ingresar un apellido paterno");
     return false;
   }
 
-  // Validar el campo de Apellido Materno
+  
   if (apellidom == "") {
     alert("Debe ingresar un apellido materno");
     return false;
   }
 
-  // Validar el campo de Fecha de Nacimiento
+  
   if (date == "") {
     alert("Debe ingresar una fecha de nacimiento");
     return false;
   }
 
-  // Validar el campo de Edad
+  
   if (edad == "" || isNaN(edad)) {
     alert("Debe ingresar una edad válida");
     return false;
   }
 
-  // Validar el campo de Género
+  
   if (genero == "") {
     alert("Debe seleccionar un género");
     return false;
   }
 
-  // Validar el campo de Celular
+  
   if (celular == "" || isNaN(celular)) {
     alert("Debe ingresar un número de celular válido");
     return false;
   }
 
-  // Validar el campo de Correo electrónico
+  
   if (correo == "") {
     alert("Debe ingresar un correo electrónico");
     return false;
@@ -134,13 +134,13 @@ function validarFormulario() {
     return false;
   }
 
-  // Validar el campo de Profesión
+  
   if (profesion == "") {
     alert("Debe ingresar una profesión");
     return false;
   }
 
-  // Validar el campo de Motivación
+  
   if (motivacion == "") {
     alert("Debe ingresar una motivación para postular");
     return false;
